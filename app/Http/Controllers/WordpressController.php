@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Corcel\Model\Menu;
 use Illuminate\Http\Request;
 
 class WordpressController extends Controller
 {
     public function index() {
-        return view('index');
+        $menu = Menu::slug('menu-principal')->first();
+        return view('index', compact('menu'));
     }
 }
